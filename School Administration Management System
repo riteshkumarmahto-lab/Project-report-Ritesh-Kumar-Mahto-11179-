@@ -1,0 +1,97 @@
+// Base Class
+class Person {
+    String name;
+    int age;
+
+    // Constructor
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Method to be overridden
+    void showRole() {
+        System.out.println("I am a Person.");
+    }
+
+    // Getter Methods
+    String getName() {
+        return name;
+    }
+
+    int getAge() {
+        return age;
+    }
+}
+
+// Teacher Class
+class Teacher extends Person {
+    String subject;
+    double salary;
+
+    // Constructor
+    Teacher(String name, int age, String subject, double salary) {
+        super(name, age);
+        this.subject = subject;
+        this.salary = salary;
+    }
+
+    // Overriding Method
+    @Override
+    void showRole() {
+        System.out.println("I am a Teacher. I teach students.");
+    }
+
+    String getSubject() {
+        return subject;
+    }
+
+    double getSalary() {
+        return salary;
+    }
+}
+
+// Student Class
+class Student extends Person {
+    int rollNumber;
+    String course;
+
+    // Constructor
+    Student(String name, int age, int rollNumber, String course) {
+        super(name, age);
+        this.rollNumber = rollNumber;
+        this.course = course;
+    }
+
+    // Overriding Method
+    @Override
+    void showRole() {
+        System.out.println("I am a Student. I study subjects.");
+    }
+
+    int getRollNumber() {
+        return rollNumber;
+    }
+
+    String getCourse() {
+        return course;
+    }
+}
+
+// Main Class
+public class SchoolAdmin {
+    public static void main(String[] args) {
+
+        // Creating objects
+        Person p1 = new Teacher("Ramesh", 40, "Mathematics", 50000);
+        Person p2 = new Student("Aman", 20, 101, "Computer Science");
+
+        // Person Array
+        Person[] people = {p1, p2};
+
+        // Runtime Polymorphism
+        for (Person p : people) {
+            p.showRole();
+        }
+    }
+}
